@@ -38,13 +38,14 @@ public:
 				}
 			}
 		}
-		
-		s1->hp = s1->hp - this->damage;
-		if (s1->hp <= 0) {
+		if(s1!=nullptr){
+			s1->hp = s1->hp - this->damage;
+			if (s1->hp <= 0) {
 			delete s1;
 			b[ii][jj] = nullptr;
 
 
+			}
 		}
 
 	}
