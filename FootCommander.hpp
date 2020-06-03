@@ -11,11 +11,11 @@ public:
 	FootCommander(int num_p) {
 		this->damage = 20;
 		this->hp = 150;
-		this->healthDamage = 0;
+		this->fullHealt=150;
 		this->player_number = num_p;
 
 	}
-	void specialAttack(std::vector<std::vector<Soldier*>> b, std::pair<int, int> location) override {
+	void specialAttack(std::vector<std::vector<Soldier*>> &b, std::pair<int, int> location) override {
 		
 		FootSoldier::specialAttack(b, location);
 
@@ -46,7 +46,7 @@ public:
 		
 	}
 	~FootCommander(){
-		cout << "delete footCommander" << endl;
+		//cout << "delete footCommander" << endl;
 	}
 
 };

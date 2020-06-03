@@ -15,18 +15,18 @@ public:
 
 	int hp;
 	int damage;
-	int healthDamage;
+	int fullHealt;
 
 	Soldier() {}
 
 
-	virtual void specialAttack(std::vector<std::vector<Soldier*>> b, std::pair<int, int> location) = 0;
+	virtual void specialAttack(std::vector<std::vector<Soldier*>> &b, std::pair<int, int> location) = 0;
 
 	int getPlayerNum() {
 		return this->player_number;
 	}
 	 virtual ~Soldier() {
-		cout << "delete soldier" << endl;
+		//cout << "delete soldier" << endl;
 	}
 
 

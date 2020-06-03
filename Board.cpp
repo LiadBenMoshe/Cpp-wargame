@@ -79,6 +79,9 @@ namespace WarGame {
 					throw std::invalid_argument("Worng Move!");
 				}
 			}
+			else {
+					throw std::invalid_argument("Worng Move!");
+				}
 			
 
 		

@@ -14,11 +14,11 @@ public:
 	FootSoldier(int num_p) {
 		this->damage = 10;
 		this->hp = 100;
-		this->healthDamage = 0;
+		this->fullHealt = 100;
 		this->player_number = num_p;
 
 	}
-	void specialAttack(std::vector<std::vector<Soldier*>> b, std::pair<int, int> location) override {
+	void specialAttack(std::vector<std::vector<Soldier*>> &b, std::pair<int, int> location) override {
 		
 		int numPlayer = b[location.first][location.second]->getPlayerNum();
 		Soldier* s1 = nullptr;
@@ -29,6 +29,7 @@ public:
 				if (b[i][j] != nullptr && b[i][j]->getPlayerNum() != numPlayer) {
 					if (abs(i - location.first) + abs(j - location.second) < dist && 
 						abs(i - location.first) + abs(j - location.second)>0) {
+						dist=abs(i - location.first) + abs(j - location.second);	
 						s1 = b[i][j];
 						ii = i;
 						jj = j;
@@ -40,10 +41,10 @@ public:
 		if (s1 != nullptr) {
 			
 			s1->hp = s1->hp - this->damage;
-			if (s1->hp < 1) {
+			if (s1->hp <= 0) {
 				delete s1;
 				b[ii][jj] = nullptr;
-				cout << "******" << endl;
+				
 			
 			}
 		}
@@ -58,7 +59,7 @@ public:
 
 	}
 	~FootSoldier(){
-		cout << "delete footSoldier" << endl;
+		//cout << "delete footSoldier" << endl;
 	}
 
 };
